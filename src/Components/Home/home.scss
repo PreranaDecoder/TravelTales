@@ -1,0 +1,285 @@
+:root {
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(
+      to right,
+      hsl(187, 85%, 43%),
+      hsl(199, 100%, 33%)
+    );
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(201, 33%, 16%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: rgb(239, 239, 239);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBG: rgb(255, 255, 235);
+  }
+  
+  .home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1; /* Make sure the video is behind other content */
+    }
+  
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+  
+    .homeContent {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      color: var(--whiteColor);
+  
+      .textDiv {
+        text-align: center;
+        margin-bottom: 2rem;
+  
+        .smallText {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: var(--PrimaryColor);
+        }
+  
+        .homeTitle {
+          font-size: 2.5rem;
+          font-weight: bold;
+          margin-top: 0.5rem;
+        }
+      }
+  
+      .searchSection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        .searchLabel {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+        }
+  
+        .searchInput {
+          padding: 0.5rem;
+          border: none;
+          border-radius: 0.5rem;
+          width: 250px;
+          text-align: center;
+        }
+      }
+
+      .dateInput{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        .dateLabel {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      .cardDiv{
+        position: relative;
+        padding: 2rem 1rem;
+        background: var(--whiteColor);
+        border-radius: 10px;
+        gap: 1rem;
+
+        label{
+            display: block;
+            color: var(--textColor);
+            padding-bottom: 10px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .label_total{
+            justify-content: space-between;
+            align-items: center;
+
+            .total{
+                color: var(--textColor);
+                font-size: 18px;
+                padding-bottom: 10px;
+            }
+        }
+
+        .input{
+            height: 40px;
+            padding: 0 1rem;
+            background: var(--inputColor);
+            border-radius: 3rem;
+
+            input{
+                background: none;
+                border: none;
+                outline: none;
+                width: 100%;
+                font-size: 13px;
+                font-weight: 500;
+                &::placeholder{
+                    font-size: 13px;
+                }
+            }
+            .icon{
+                font-size: 18px;
+                color: var(--PrimaryColor);
+                // !important;
+                margin-left:10px;
+            }
+
+            .input[type=range]{
+                background: blue;
+            }
+        }
+
+        
+        .searchOptions{
+            position: absolute;
+            background: var(--gradientColor);
+            width: max-content;
+            bottom: -0.7rem;
+            column-gap: .8rem;
+            padding: 5px 1rem;
+            border-radius: 3rem;
+            left: 50%;
+            transform: translate(-50%);
+            justify-content: center;
+            cursor: pointer;
+
+            &:hover{
+                background: var(--PrimaryColor);
+            }
+
+            .icon{
+                font-size: 18px;
+            }
+
+            span{
+                font-size: 13px;
+            }
+        }
+      }
+
+    }
+  }
+  
+  .header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--whiteColorDeam);
+    box-shadow: 0 2px 4px rgba(2, 15, 29, 0.242);
+    width: 100%;
+    padding: 1rem;
+    z-index: 10000;
+  
+    .logo {
+      color: var(--blackColor);
+      font-weight: 600;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+  
+      .icon {
+        font-size: 25px;
+        color: var(--PrimaryColor);
+        transform: translateY(5px);
+      }
+    }
+    
+    @media screen and (max-width: 768px) {
+      .navbar {
+        position: absolute;
+        background: var(--whiteColorDeam);
+        height: max-content;
+        width: 80%;
+        padding: 1rem;
+        border-radius: 1rem;
+        top: -500rem;
+        left: 50%;
+        transform: translate(-50%);
+        z-index: 2000;
+        box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+        transition: 0.5s ease-in-out;
+  
+        .navLists {
+          flex-direction: column;
+          justify-content: center;
+          width: 100%;
+          margin: auto;
+          padding: 0.5rem 0;
+  
+          .navItem {
+            padding: 0.5rem 0;
+  
+            .navLink {
+              color: var(--textColor);
+              font-size: 0.9rem;
+              font-weight: 600;
+  
+              &:hover {
+                color: var(--PrimaryColor);
+              }
+            }
+          }
+          
+          .btn {
+            margin-top: 1rem;
+            a {
+              font-weight: 600;
+              color: var(--whiteColor);
+            }
+          }
+        }
+        
+        .closeNavbar {
+          position: absolute;
+          top: 1rem;
+          right: 1.5rem;
+          color: var(--PrimaryColor);
+  
+          &:hover {
+            color: var(--SecondaryColor);
+          }
+        }
+      }
+  
+      .activeNavbar {
+        top: 7rem;
+      }
+    }
+  
+    .toggleNavbar {
+      .icon {
+        font-size: 25px;
+        color: var(--PrimaryColor);
+      }
+      &:hover .icon {
+        color: var(--SecondaryColor);
+      }
+    }
+  }
+  
